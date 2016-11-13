@@ -31,6 +31,10 @@ trait C2 extends A2{
   abstract override def a: String = "C" + super.a
 }
 
-class D2 extends B2 with C2
+class D2 extends A2{
+  override def a = "D"
+}
 
-new D2().a
+class E2 extends D2 with B2 with C2
+
+new E2().a
