@@ -9,8 +9,8 @@ trait DefaultTweetServiceComponent extends TweetServiceComponent with AuthServic
   override type TweetService = DefaultTweetService.type
 
   object DefaultTweetService extends TweetServiceLike{
-    override def tweet(tweet: Tweet): Unit = {
-      println("Tweet: " + tweet)
+    override def tweet(tweet: Tweet): String = {
+      tweet.content
     }
   }
 }

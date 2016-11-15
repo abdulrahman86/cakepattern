@@ -14,11 +14,16 @@ trait TweetServiceComponent {
 
   trait TweetServiceLike{
 
-    final def tweet(user: User, tweet: Tweet): Unit = {
-      if(userAuthService.authenticateUser(user)) this.tweet(tweet)
+    final def tweet(user: User, tweet: Tweet): String = {
+      if(userAuthService.authenticateUser(user)) {
+        this.tweet(tweet)
+      }
+      else{
+        "Could not tweet"
+      }
     }
 
-    def tweet(tweet: Tweet): Unit
+    def tweet(tweet: Tweet): String
   }
 }
 
